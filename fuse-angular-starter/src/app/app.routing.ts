@@ -75,9 +75,12 @@ export const appRoutes: Route[] = [
         },
         children   : [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+            {path: 'car', loadChildren: () => import('app/modules/cars/cars.module').then(m => m.CarsModule)},
+          
+       
         ]
     },
-    {
+  /*  {
         path       : '',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
@@ -100,5 +103,5 @@ export const appRoutes: Route[] = [
         children   : [
             {path: 'car1', loadChildren: () => import('app/modules/cars/cars.module').then(m => m.CarsModule)},
         ]
-    },
+    },*/
 ];
