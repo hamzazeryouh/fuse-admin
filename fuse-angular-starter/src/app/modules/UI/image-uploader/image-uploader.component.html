@@ -1,0 +1,17 @@
+<div class="w-64 p-4 border border-gray-300 rounded-md">
+    <h2 class="text-xl font-bold mb-4">Image Uploader</h2>
+    <div
+      class="w-full h-32 border border-dashed border-gray-400 flex items-center justify-center"
+      (drop)="handleDrop($event)"
+      (dragover)="handleDragOver($event)"
+    >
+      <p class="text-gray-500">Drag and drop images here</p>
+    </div>
+    <div class="mt-4">
+      <h4 class="text-lg font-semibold mb-2">Uploaded Images:</h4>
+      <ul class="list-disc pl-6">
+        <li *ngFor="let image of uploadedImages">{{ image.name }}</li>
+      </ul>
+    </div>
+  </div>
+  

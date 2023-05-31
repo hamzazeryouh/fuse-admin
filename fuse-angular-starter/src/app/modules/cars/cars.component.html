@@ -1,17 +1,76 @@
-<div class="flex flex-col flex-auto min-w-0">
-
-    <!-- Main -->
-    <div class="flex-auto p-6 sm:p-10">
-
-        <!-- CONTENT GOES HERE -->
-        <div class="h-400 min-h-400 max-h-400  border-dashed border-gray-300 rounded-2xl">
-            <div class="container mx-auto mt-8">
-                <h1 class="text-3xl font-bold mb-4">Car Collection</h1>
-
-              </div>
-
-        </div>
-
-    </div>
-
+<div class="flex justify-center">
+  <table class="min-w-full border rounded-lg overflow-hidden">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2">Year</th>
+        <th class="px-4 py-2">Color</th>
+        <th class="px-4 py-2">Body Type</th>
+        <th class="px-4 py-2">Transmission</th>
+        <th class="px-4 py-2">Fuel Type</th>
+        <th class="px-4 py-2">Seating Capacity</th>
+        <th class="px-4 py-2">Luggage Capacity</th>
+        <th class="px-4 py-2">Features</th>
+        <th class="px-4 py-2">Price</th>
+        <th class="px-4 py-2">Availability</th>
+        <th class="px-4 py-2">Discount</th>
+        <th class="px-4 py-2">Description</th>
+        <th class="px-4 py-2">User ID</th>
+        <th class="px-4 py-2">Images</th>
+        <th class="px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let car of cars" class="hover:bg-gray-100">
+        <td class="px-4 py-2">{{ car.year }}</td>
+        <td class="px-4 py-2">{{ car.color }}</td>
+        <td class="px-4 py-2">{{ car.bodyType }}</td>
+        <td class="px-4 py-2">{{ car.transmission }}</td>
+        <td class="px-4 py-2">{{ car.fuelType }}</td>
+        <td class="px-4 py-2">{{ car.seatingCapacity }}</td>
+        <td class="px-4 py-2">{{ car.luggageCapacity }}</td>
+        <td class="px-4 py-2">
+          <ul class="list-disc list-inside">
+            <li *ngFor="let feature of car.features">{{ feature.name}}</li>
+          </ul>
+        </td>
+        <td class="px-4 py-2">${{ car.Price }}</td>
+        <td class="px-4 py-2" [ngClass]="{'text-green-500': car.isAvailable, 'text-red-500': !car.isAvailable}">
+          {{ car.IsAvailable ? 'Available' : 'Not Available' }}
+        </td>
+        <td class="px-4 py-2">{{ car.discount }}</td>
+        <td class="px-4 py-2">{{ car.description }}</td>
+        <td class="px-4 py-2">{{ car.dserId }}</td>
+      <!--<td class="px-4 py-2">{{ car.User }}</td>-->  
+        <td class="px-4 py-2">
+          <ul class="list-disc list-inside">
+            <li *ngFor="let image of car.Images">{{ image.imageUrl }}</li>
+          </ul>
+        </td>
+        <td class="px-4 py-2">
+          <div class="flex space-x-2">
+            <button class="text-blue-500 hover:text-blue-700">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </button>
+            <button class="text-green-500 hover:text-green-700">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </button>
+            <button class="text-red-500 hover:text-red-700">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+
+<app-image-uploader></app-image-uploader>

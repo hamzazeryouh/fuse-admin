@@ -23,7 +23,8 @@ import { CRCardComponent } from './crcard/crcard.component';
 const Routes: Route[] = [
   {
       path     : '',
-      component: CarsComponent
+      component: CarsComponent,
+     
   }
 ];
 
