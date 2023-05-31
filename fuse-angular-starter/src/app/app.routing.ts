@@ -76,5 +76,29 @@ export const appRoutes: Route[] = [
         children   : [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]
-    }
+    },
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'cars', loadChildren: () => import('app/modules/cars/cars.module').then(m => m.CarsModule)},
+        ]
+    },
+
+    //cars route 
+    {
+        path: '',
+        component  : LayoutComponent,
+        data: {
+            layout: 'empty'
+        },
+        children   : [
+            {path: 'car1', loadChildren: () => import('app/modules/cars/cars.module').then(m => m.CarsModule)},
+        ]
+    },
 ];
