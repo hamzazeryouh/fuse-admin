@@ -14,6 +14,7 @@ import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 import { CarsComponent } from './modules/cars/cars.component';
 import { EditcarsComponent } from './modules/cars/editcars/editcars.component';
+import { ImageUploaderComponent } from './modules/UI/image-uploader/image-uploader.component';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -23,7 +24,8 @@ const routerConfig: ExtraOptions = {
 @NgModule({
     declarations: [
         AppComponent,
-        CarsComponent
+        CarsComponent,
+        ImageUploaderComponent
     ],
     imports     : [
         BrowserModule,
